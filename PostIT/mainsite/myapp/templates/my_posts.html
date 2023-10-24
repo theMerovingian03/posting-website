@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}My Posts{% endblock %}
+{% block content %}
+<h3 style="margin: 20px;">My Posts</h3>
+<div class="main-content">
+    <div class="empty" style="height: 40px;"></div>
+    {% if my_posts %}
+    <p>Number of posts: {{ my_posts|length }}</p>
+    <p style="margin-top: -5px;">Click on a post to edit or delete</p>
+        {% for post in my_posts %}
+        <div class="post-body2" onclick="window.location.href='{% url 'post_update' pk=post.pk %}'">
+            <h3>you posted on {{ post.created_date }}, "{{ post.title }}"</h3>
+            <p>{{ post.post_content }}</p>
+        </div>
+        {% endfor %}
+    {% else %}
+    <h2>You haven't posted yet! Click on the '+' icon below to post</h2>
+    {% endif %}
+    <div class="empty"></div>
+  </div>
+{% endblock %}

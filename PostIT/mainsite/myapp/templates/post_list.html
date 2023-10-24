@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Posts{% endblock %}
+{% block content %}
+<h3 style="margin: 20px;">All Posts</h3>
+<div class="main-content">
+    <div class="empty" style="height: 40px;"></div>
+    <!-- Multiple small rectangular divs -->
+    {% if posts %}
+        {% for post in posts %}
+        <div class="post-body">
+            <h3>@{{ post.author }} says, {{ post.title }}</h3>
+            <p>{{ post.post_content }}</p>
+        </div>
+        {% endfor %}
+    {% else %}
+    <h2>No posts yet!</h2>
+    {% endif %}
+    <div class="empty"></div>
+    <div class="empty"></div>
+    <!-- ... Add more rectangles as needed -->
+  </div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<body>
+    <div class="profile-container">
+        <img src="{% static 'images/profile.png' %}">
+        <h3>Username: {{ request.user }}</h3>
+        <p>Number of posts: {{ posts_count }}</p>
+        <a href="{% url 'logout' %}">Logout</a>
+    </div>
+</body>
+{% endblock %}

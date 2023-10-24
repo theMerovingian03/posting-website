@@ -1,0 +1,28 @@
+{% load static %}
+<html>
+<head>
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="card-body">
+        <h2>Register</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <label>{{form.username.label}}</label>
+            {{form.username}}
+            <br>
+
+            <label>{{form.password1.label}}</label>
+            {{form.password1}}
+            <br>
+    
+            <label>{{form.password2.label}}</label>
+            {{form.password2}}
+            <input style="margin-top:20px ;" class="button" type="submit" value="Register">
+        </form>
+        <br>
+        <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+    </div>
+</body>
+</html>

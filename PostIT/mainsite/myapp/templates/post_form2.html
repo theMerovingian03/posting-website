@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Edit Post{% endblock %}
+{% block content %}
+    <div class="card-body">
+        <form method="POST" action="">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" value="Save">
+        </form>
+        <input type="submit" value="Delete Post" onclick="window.location.href='{% url 'post_delete' pk=post.pk %}'">
+        <br>
+        <br>
+        <h4><a href="{% url 'posts_list' %}">Go Back</a></h4>
+    </div>
+    <div class="empty"></div>
+{% endblock %}
